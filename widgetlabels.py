@@ -17,12 +17,23 @@ root.geometry("600x400")
 root.resizable(False,False)
 root.title("Widget Examples")
 
+# Text Label 1
 label = ttk.Label(root, text="Hello World", padding=20)
 label.config(font=("Segoe UI", 20))
-image = Image.open("logo2.png")
+
+# Picture 1
+image = Image.open("logo2.png").resize((64,64))
 photo = ImageTk.PhotoImage(image)
-label2 = ttk.Label(root, image=photo, padding=20)
+picture_text = ttk.Label(root, text="This is the text", image=photo, padding=5, compound="right")
 label.pack()
-label2.pack()
+picture_text.pack()
+
+# Label with Dynamic text
+text_label = tk.StringVar()
+dynamic_label = ttk.Label(root, padding=10, textvariable=text_label)
+dynamic_label.pack()
+
+text_label.set("Hello John!")
+
 
 root.mainloop()
