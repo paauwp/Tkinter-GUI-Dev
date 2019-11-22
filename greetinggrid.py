@@ -2,6 +2,15 @@
 import tkinter as tk
 from tkinter import ttk
 
+# Set Windows 10 High DPI
+try:
+    from ctypes import windll
+    print("Windows High DPI detected")
+    windll.shcore.SetProcessDpiAwareness(1)
+
+except:
+    print("No Windows 10 High DPI detected")
+
 def greet():
     # The get() method is used to fetch the value of a StringVar() instance.
     # If user_name is empty, print Hello, World!
@@ -16,7 +25,7 @@ root.columnconfigure(0, weight=1)
 user_name = tk.StringVar()
 
 input_frame = ttk.Frame(root, padding=(20,10,20,0))
-input_frame.grid()
+input_frame.grid(sticky="EW")
 
 name_label = ttk.Label(input_frame, text="Name: ")
 name_label.grid(row=0, column=0)
