@@ -13,11 +13,17 @@ class e_tkTK_Klasse_DistanceConverterStartScherm(tk.Tk):
         super().__init__()
 
         self.title("Distance Converter")
-        FrameScherm = e_ttkFrame_Klasse_FrameScherm_MetersnaarVoeten(self, padding=(60,30))
-        FrameScherm.grid()
 
-        self.bind("<Return>", FrameScherm.Methode_Berekenvoeten)
-        self.bind("<KP_Enter>", FrameScherm.Methode_Berekenvoeten)
+        #ExtraFrameWindowContainer = ttk.Frame(self)
+        #ExtraFrameWindowContainer.grid(padx=60, pady=30, sticky="EW")
+
+
+
+        FrameScherm_MetersnaarVoeten = e_ttkFrame_Klasse_FrameScherm_MetersnaarVoeten(self, padding=(60,30))
+        FrameScherm_MetersnaarVoeten.grid()
+
+        self.bind("<Return>", FrameScherm_MetersnaarVoeten.Methode_Berekenvoeten)
+        self.bind("<KP_Enter>", FrameScherm_MetersnaarVoeten.Methode_Berekenvoeten)
 
 class e_ttkFrame_Klasse_FrameScherm_MetersnaarVoeten(ttk.Frame):
     def __init__(self,bewaarplek, **kwargs):
