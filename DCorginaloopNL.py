@@ -17,11 +17,11 @@ class e_tkTK_Klasse_DistanceConverterStartScherm(tk.Tk):
         ExtraFrameWindowContainer = ttk.Frame(self)
         ExtraFrameWindowContainer.grid(padx=60, pady=30, sticky="EW")
 
-        FrameScherm_MetersnaarVoeten = e_ttkFrame_Klasse_FrameScherm_MetersnaarVoeten(ExtraFrameWindowContainer)
-        FrameScherm_MetersnaarVoeten.grid(row=0, column=0, sticky="NSEW")
+        FrameScherm_VoetennaarMeters = e_ttkFrame_Klasse_FrameScherm_VoetennaarMeters(ExtraFrameWindowContainer)
+        FrameScherm_VoetennaarMeters.grid(row=0, column=0, sticky="NSEW")
 
-        self.bind("<Return>", FrameScherm_MetersnaarVoeten.Methode_Bereken)
-        self.bind("<KP_Enter>", FrameScherm_MetersnaarVoeten.Methode_Bereken)
+        self.bind("<Return>", FrameScherm_VoetennaarMeters.Methode_Bereken)
+        self.bind("<KP_Enter>", FrameScherm_VoetennaarMeters.Methode_Bereken)
 
 class e_ttkFrame_Klasse_FrameScherm_MetersnaarVoeten(ttk.Frame):
     def __init__(self,bewaarplek, **kwargs):
@@ -89,7 +89,7 @@ class e_ttkFrame_Klasse_FrameScherm_VoetennaarMeters(ttk.Frame):
     def Methode_Bereken(self, *args):
         try:
             voeten = float(self.waarde_in_voeten.get())
-            meters = meters / 3.28084
+            meters = voeten / 3.28084
             self.waarde_in_meters.set(f"{meters:.3f}")
         except ValueError:
              pass
